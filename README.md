@@ -21,7 +21,7 @@ Table heros {
 }
 
 
-Table hero_inter_relations {
+Table hero_relations {
   id integer [primary key]
   fk_id_hero integer // main hero
   fk_id_related_hero integer // represents the related hero
@@ -36,4 +36,28 @@ Ref: heros.id < hero_inter_relations.fk_id_related_hero // one-to-many
 
 ```
 
+#
+
 [ER DIAGRAM](https://github.com/dVp007/this-that-backend-task/blob/main/er-diagram.pdf)
+
+#
+
+# STEPS TO IMPLEMENT SQL QUERIES
+
+```
+Step1: Create a database in postgres.
+Step2: Use the database that is created.
+Step3: Copy the sql and run it.
+```
+
+#
+
+# Explanation and the way api should be implemented
+
+- 1.  API endpoint Name - api/hero/updateAccomplices
+- 2.  API endpoint Method - PATCH
+- 3.  Request Body must contain heroId instead in path as it would be more secure
+- 4.  With the help of heroId and each relatedHeroId in the `hero_relation` table find the relation check if isEnemy is false as we are updating only the related accomplices
+- 5.  If the current relatedHeroId is not present in the database skip further processing and move on to another relatedHero
+- 6.  If relatedHero found update the respective hero details in the `hero` table, fetched from requestBody.
+- 7.  Lastly send success message in response with error code 204.
