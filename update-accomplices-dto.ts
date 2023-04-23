@@ -4,7 +4,7 @@ enum GenderEnum {
   OTHERS = 'OTHERS'
 }
 
-type RelatedHeroType = {
+type RelatedMarvelCharacterType = {
   id: number;
   name: String;
   gender: GenderEnum;
@@ -13,19 +13,19 @@ type RelatedHeroType = {
 }
 
 export class UpdateAccomplicesDTO {
-  heroId: number;
-  relatedHero: Array<RelatedHeroType>;
+  marvelCharacterId: number;
+  relatedMarvelCharacter: Array<RelatedMarvelCharacterType>;
   isEnemy?: boolean;
 }
 
 /**
  * Explanation and the way api should bt implemented
  * 
- * 1. API endpoint Name - api/hero/updateAccomplices
+ * 1. API endpoint Name - api/marvelCharacter/updateAccomplices
  * 2. API endpoint Method - PATCH
- * 3. Request Body must contain heroId instead in path as it would be more secure
- * 4. With the help of heroId and each relatedHeroId in the `hero_relation` table find the relation check if isEnemy is false as we are updating only the related accomplices
- * 5. If the current relatedHeroId is not present in the database skip further processing and move on to another relatedHero
- * 6. If relatedHero found update the respective hero details in the Hero table, fetched from requestBody.
+ * 3. Request Body must contain marvelCharacterId instead in path as it would be more secure
+ * 4. With the help of marvelCharacterId and each relatedMarvelCharacterId in the `marvel_character_relation` table find the relation check if isEnemy is false as we are updating only the related accomplices
+ * 5. If the current relatedMarvelCharacterId is not present in the database skip further processing and move on to another relatedMarvelCharacter
+ * 6. If relatedMarvelCharacter found update the respective character details in the marvel_character table, fetched from requestBody.
  * 7. Lastly send success message in response with error code 204.
  */

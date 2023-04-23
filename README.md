@@ -9,7 +9,7 @@ Enum Gender {
   OTHER
 }
 
-Table heros {
+Table marvel_character {
   id integer [primary key]
   name string // name
   gender  Gender// gender
@@ -21,18 +21,18 @@ Table heros {
 }
 
 
-Table hero_relations {
+Table marvel_character_relations {
   id integer [primary key]
-  fk_id_hero integer // main hero
-  fk_id_related_hero integer // represents the related hero
+  fk_id_marvel_character integer // main hero
+  fk_id_related_marvel_character integer // represents the related hero
   isEnemy boolean // if not an enemy then it is an accomply
   deleted_date timestamptz // soft delete purposes
   created_date timestamptz
   last_modified_date timestamptz
 }
 
-Ref: heros.id < hero_inter_relations.fk_id_hero // one-to-many
-Ref: heros.id < hero_inter_relations.fk_id_related_hero // one-to-many
+Ref: marvel_character.id < marvel_character_relations.fk_id_marvel_character // one-to-many
+Ref: marvel_character.id < marvel_character_relations.fk_id_related_marvel_character // one-to-many
 
 ```
 
