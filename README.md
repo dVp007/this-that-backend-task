@@ -23,4 +23,4 @@ Ref: heros.id < hero_inter_relations.parent_hero // one-to-many
 Ref: heros.id < hero_inter_relations.related_hero // one-to-many
 ```
 
-ER DIAGRAM
+[ER DIAGRAM](https://github.com/dVp007/this-that-backend-task/blob/main/er-diagram.pdf)
